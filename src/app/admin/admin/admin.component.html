@@ -1,0 +1,57 @@
+<ng-container>
+  <!--toolbar-->
+  <mat-toolbar color="primary" class="admin-header">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Deval App Angular</span>
+    <div class="uk-width-expand"></div>
+    <small>admin</small>
+    <button mat-mini-fab color="warn" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+
+  </mat-toolbar>
+  <!--end toolbar-->
+
+  <mat-sidenav-container class="admin-container">
+    <mat-sidenav #sidenav
+    mode="side"
+    [position]="'start'"
+    opened
+    class="sidenav-left"
+    [fixedInViewport]="true"
+    [fixedTopGap]="60"
+    [fixedBottomGap]="0">
+
+      <mat-nav-list>
+          <mat-list-item routerLink="/admin/dashboard">
+            <mat-icon matListIcon>space_dashboard</mat-icon>
+            <h3 matLine>Dashboard</h3>
+          </mat-list-item>
+
+          <mat-list-item routerLink="/admin/product">
+            <mat-icon matListIcon>shopping_bag</mat-icon>
+            <h3 matLine>Products</h3>
+          </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav #sidenav mode="side"
+    [position]="'end'"
+    class="example-sidenav"
+    [fixedInViewport]="true"
+    [fixedTopGap]="60"
+    [fixedBottomGap]="0">
+
+    </mat-sidenav>
+
+
+    <!--sidenav content-->
+    <mat-sidenav-content style="padding: 20px; background-color: #A7FFEB;">
+      <!--halaman-halaman tampil disini-->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    <!--end sidenav content-->
+    </mat-sidenav-container>
+</ng-container>

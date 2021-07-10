@@ -1,0 +1,38 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Include non-theme styles for core.
+@include mat-core();
+
+// Define your application's custom theme.
+$primary: mat-palette($mat-teal, 500, 900, A700);
+$accent: mat-palette($mat-pink, 500, 900, A100);
+$warn: mat-palette($mat-red, A200);
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+    )));
+
+// Include theme styles for Angular Material components.
+@include angular-material-theme($theme);
+
+//memakai uikit untuk memanfaatkan flex, grid, widht, dan height.
+@import './uikit.css';
+
+html,
+body {
+  height: 100%;
+  background-color: '#e0e0e0';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, Helvetica Neue, "sans-serif";
+}
+
+.spacer {
+  flex-grow: 1;
+}
